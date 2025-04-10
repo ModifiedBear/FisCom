@@ -21,9 +21,9 @@ V[:,4] .= [exp(-5*x^2) for x in X]
 W = zeros(nx, ny); # old
 
 SIM_STEPS = 1200;
-wave_oh2 = FDTD.oh2(U,copy(V),ALPHA, KAPPA, X,Y, SIM_STEPS;_absorbing=true); GC.gc()
-wave_oh4 = FDTD.oh4(U,copy(V),ALPHA, KAPPA, X,Y, SIM_STEPS;_absorbing=true); GC.gc()
-wave_oh6 = FDTD.oh6(U,copy(V),ALPHA, KAPPA, X,Y, SIM_STEPS;_absorbing=true); GC.gc()
+wave_oh2 = FDTD.oh2(U,copy(V),ALPHA, KAPPA, X,Y, SIM_STEPS;_absorbing=false); GC.gc()
+wave_oh4 = FDTD.oh4(U,copy(V),ALPHA, KAPPA, X,Y, SIM_STEPS;_absorbing=false); GC.gc()
+wave_oh6 = FDTD.oh6(U,copy(V),ALPHA, KAPPA, X,Y, SIM_STEPS;_absorbing=false); GC.gc()
 end
 
 begin
