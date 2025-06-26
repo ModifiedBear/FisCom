@@ -1,6 +1,6 @@
-using GLMakie
+using CairoMakie
 using ProgressBars: ProgressBar
-using FisCom: FDTD
+using FisCom: get_laplace_kernel
 using ImageFiltering: imfilter
 
 begin
@@ -19,7 +19,7 @@ begin
   # V = [sin((x+0im)*pi/L) * cos(2(y+0im)*pi/L) for x in Coords[1], y in Coords[2]]
 
   kernel_order = 4 # O(h^4)
-  laplacian    = FDTD.get_laplace_kernel(length(Ndims),kernel_order)
+  laplacian    = get_laplace_kernel(length(Ndims),kernel_order)
 
   println("Allocating...")
   wave_array     = fill(zeros(ComplexF32, size(V)...), MAXITER)
